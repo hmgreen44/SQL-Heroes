@@ -27,6 +27,9 @@ switch ($route) {
   case "deleteHero":
     $myData = deleteHero($conn);
     break;
+  case "updateHero":
+    $myData = updateHero($conn);
+    break;
   default:
     $myData = json_encode([]);
 }
@@ -96,6 +99,16 @@ if (mysqli_query($conn, $sql)) {
 } else {
   echo "Error deleting record: " . mysqli_error($conn);
 }
+}
+function updateHero($conn){
+  $sql = "UPDATE ability_hero SET ability_id='3' WHERE hero_id=1";
+
+if (mysqli_query($conn, $sql)) {
+  echo "Record updated successfully";
+} else {
+  echo "Error updating record: " . mysqli_error($conn);
+}
+  
 }
 
 mysqli_close($conn);

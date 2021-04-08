@@ -22,6 +22,7 @@
     <p class="card-text"><a href="/api.php?route=getHeroByID&hero_id=5" target="_blank">Get Hero By ID</a></p>
     <p class="card-text"><a href="/api.php?route=addHero" target="_blank">Add A Hero</a></p>
     <p class="card-text"><a href="/api.php?route=deleteHero" target="_blank">Delete A Hero</a></p>
+      <p class="card-text"><a href="/api.php?route=updateHero" target="_blank">Update A Hero's Abilities</a></p>
           </div>
         </div>
       </div>
