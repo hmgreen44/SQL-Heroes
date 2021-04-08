@@ -21,6 +21,12 @@ switch ($route) {
     $id = $_GET["hero_id"];
     $myData = getHeroByID($conn, $id);
     break;
+  case "addHero":
+    $myData = addHero($conn);
+    break;
+  case "deleteHero":
+    $myData = deleteHero($conn);
+    break;
   default:
     $myData = json_encode([]);
 }
@@ -68,6 +74,34 @@ if ($result->num_rows > 0) {
   return json_encode($data);
    
  }
+
+function addHero($conn){
+  $sql = "INSERT INTO heroes (id, name, about_me, biography, image_url)
+          VALUES ('7', 'Kata Dude', 'Solves Katas', 'I love katas', 'Null')";
+if (mysqli_query($conn, $sql)) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+  
+}
+ 
+
+function deleteHero($conn){
+// sql to delete a record
+$sql = "DELETE FROM heroes WHERE id=7";
+
+if (mysqli_query($conn, $sql)) {
+  echo "Record deleted successfully";
+} else {
+  echo "Error deleting record: " . mysqli_error($conn);
+}
+}
+
+mysqli_close($conn);
+?>
+
+
 
 
 ?>

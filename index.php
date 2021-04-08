@@ -8,12 +8,24 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
+
     <title>SQLHeroes</title>
   </head>
   <body>
-    <h1>SQLHeroes</h1>
-    
-    
+    <div class="container mt-5 text-center">
+      <h1>SQLHeroes</h1>
+      <div class="row mt-5 text-center">
+        <div class="card">
+    <div class="card-body">
+    <h5 class="card-title">Menu</h5>
+    <p class="card-text"><a href="/api.php?route=getAllHeroes" target="_blank">Get All Heroes</a></p>
+    <p class="card-text"><a href="/api.php?route=getHeroByID&hero_id=5" target="_blank">Get Hero By ID</a></p>
+    <p class="card-text"><a href="/api.php?route=addHero" target="_blank">Add A Hero</a></p>
+    <p class="card-text"><a href="/api.php?route=deleteHero" target="_blank">Delete A Hero</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
