@@ -18,10 +18,11 @@ switch ($route) {
     $myData = getAllHeroes($conn);
     break;
   case "getHeroByID":
-    $myData = getHeroByID($conn, 5);
+    $id = $_GET["hero_id"];
+    $myData = getHeroByID($conn, $id);
     break;
   default:
-    echo "Your favorite c";
+    $myData = json_encode([]);
 }
 
 echo $myData;
@@ -31,7 +32,7 @@ $conn->close();
 
 
 function getAllHeroes($conn){
-  $data = "";
+  $data = array();
   
   $sql = "SELECT * FROM heroes";
   $result = $conn->query($sql);
@@ -39,18 +40,18 @@ function getAllHeroes($conn){
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
-    $data .= "id: " . $row["id"]. " - Name: " . $row["name"]. " " . $row["about_me"]. "<br>";
+   array_push($data,$row);
   }
  } else {
   $data = "0 results";
  }
    
-  return $data;
+  return json_encode($data);
    
  }
 
 function getHeroByID($conn, $heroID){
-  $data = "";
+  $data = array();
   
   $sql = "SELECT * FROM heroes WHERE id = " . $heroID;
   $result = $conn->query($sql);
@@ -58,13 +59,13 @@ function getHeroByID($conn, $heroID){
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
-    $data .= "id: " . $row["id"]. " - Name: " . $row["name"]. " " . $row["about_me"]. "<br>";
+    array_push($data,$row);
   }
  } else {
   $data = "0 results";
  }
    
-  return $data;
+  return json_encode($data);
    
  }
 
